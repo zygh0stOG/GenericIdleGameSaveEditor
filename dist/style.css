@@ -13,21 +13,8 @@ body {
   overflow: hidden;
 }
 
-.reversed {
-  display: flex;
-  flex-direction: column-reverse;
-}
-
 .main {
   border: 0px solid white;
-}
-
-.main-content {
-  text-align: center;
-  margin: 0 auto;
-  width: 50%;
-  height: 75%;
-  border: 0px solid green;
 }
 
 .container-treeview {
@@ -44,11 +31,6 @@ body {
 .container-input {
   
   border: 0px solid yellow;
-}
-
-.container-output {
-  margin-top: 20px;
-  margin-bottom: 20px;
 }
 
 .container-buttons {
@@ -118,11 +100,6 @@ div:has(>button) {
   border-radius: 5px;
 }
 
-.output {
-  width: 80%;
-  height: 150px;
-}
-
 .jsonView {
   margin: 0 auto;
   width: 50%;
@@ -166,6 +143,7 @@ div:has(>button) {
   display: inline-block;
   width: 15px;
 }
+
 .jsonView > .spacing::before {
   content: "1";
   visibility: hidden;
@@ -256,6 +234,7 @@ div:has(>button) {
   opacity: 1;
   color: rgb(250, 150, 150);
 }
+
 .jsonView > .delete:hover {
   opacity: 1;
   color: rgb(255, 0, 0);
@@ -266,6 +245,7 @@ div:has(>button) {
 .jsonView.readonly > .delete {
   display: none !important;
 }
+
 .jsonView > .insert:before {
   content: "+";
 }
