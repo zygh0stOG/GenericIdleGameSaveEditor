@@ -84,12 +84,14 @@ function decode_save() {
     }
     //input.value = "";
     save_data = JSON.parse(raw_str);
-  } catch (error) {
+  } catch (err) {
+    console.log(err);
     try {
       var raw_str = atob(input.value);
       save_data = JSON.parse(raw_str);
       isLZString = false;
-    } catch (error) {
+    } catch (err2) {
+      console.log(err2);
       return;
     }
   }
