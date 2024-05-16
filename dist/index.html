@@ -1,23 +1,58 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <title>CodePen - Generic Idle Game Save Editor</title>
-  <link rel='stylesheet' href='https://raw.githubusercontent.com/luyuan/json-tree-view/master/devtools.cs'><link rel="stylesheet" href="./style.css">
-
+  <title>Generic Idle Game Save Editor by zygh0st</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--<link rel='stylesheet' href='https://raw.githubusercontent.com/zygh0stOG/json-tree-view/master/devtools.css'>-->
+  <link rel="stylesheet" href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css'>
+  <link rel="stylesheet" href="./devtools.css">
+  <link rel="stylesheet" href="./style.css">
+  
 </head>
+
 <body>
-<!-- partial:index.partial.html -->
-<div id="inputshit"><!--
-  <label id="lblInput" for="input">Input:</label>--><input type="text" id="input"/>
-</div>
-<div id="outputshit">
-<!--Output--><textarea id="output" style="display: none"></textarea></div>
-<div id="buttonshit">
-<button id="decode">Decode</button><button id="encode">Encode</button></div>
-<!-- partial -->
+  <!-- partial:index.partial.html -->
+  <div class="container-fluid">
+    <div class="row">
+      <!-- Left Column -->
+      <div class="col">
+        <!-- JSON Tree View -->
+        <div class="container-treeview" id="tree-view"></div>
+      </div>
+      <!-- Right Column -->
+      <div class="col">
+        <!-- Input -->
+        <!--<div class="container-input row align-items-center">-->
+          
+          <div class="row">
+          <!--<label id="lblInput" for="input">Input:</label>-->
+          <!--<input type="text" id="input"/>-->
+          <textarea class="input col" id="sg-input" placeholder="Input save game here..."></textarea>
+        </div>
+        <!-- Output -->
+        <!--
+        <div class="container-output" id="container-output">
+          <textarea class="output" id="sg-output" style="display: none"></textarea>
+        </div>-->
+        <!-- Buttons -->
+        <!--<div class="container-buttons" id="container-buttons">-->
+        <div class="row">
+          
+          <button class="button decode col-4" id="btn-decode">Decode</button>
+          <!--<button class="button testbtn" id="btn-test">Test</button>-->
+          <button class="button encode col-4" id="btn-encode">Encode</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- partial -->
+  <!-- Scripts -->
   <script src='https://cdnjs.cloudflare.com/ajax/libs/lz-string/1.4.4/lz-string.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/js-cookie/3.0.5/js.cookie.min.js'></script><script type="module" src="./script.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/js-cookie/3.0.5/js.cookie.min.js'></script>
+  <script type="module" src="./script.js"></script>
 
 </body>
+
 </html>

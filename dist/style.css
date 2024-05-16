@@ -1,216 +1,289 @@
+:root {
+  --container-width: 50vw;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 body {
-  background: black;
-  color: white;
+  background-color: #000;
+  color: #fff;
+  font-family: "Source Code Pro", Consolas;
+  overflow: hidden;
 }
 
-div {
-  text-align: center;
-}
-
-button {
-  margin: 10px;
-  font-size: 18pt;
-  padding: 20px;
-}
-
-button#decode {
-  background: black;
-  color: white;
-  border: 2px solid green;
-}
-
-button#encode {
-  background: black;
-  color: white;
-  border: 2px solid red;
-}
-
-button#decode:hover {
-  background: white;
-  color: black;
-  border: 2px solid red;
-}
-
-button#encode:hover {
-  background: white;
-  color: black;
-  border: 2px solid green;
-}
-
-textarea,
-input {
-  color: black;
-}
-
-#input {
-  width: 20%;
-}
-
-#output {
-  width: 80%;
-  height: 150px;
-}
-
-div#outputshit {
+.reversed {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column-reverse;
+}
+
+.main {
+  border: 0px solid white;
+}
+
+.main-content {
+  text-align: center;
+  margin: 0 auto;
+  width: 50%;
+  height: 75%;
+  border: 0px solid green;
+}
+
+.container-treeview {
+  width: 50vw;
+  text-align: center;
+  border: 0px solid orange;
+  margin: 0 auto;
+  padding: 20px 0 20px 0;
+  overflow: scroll;
+  overflow-x: hidden;
+  height: 100vh;
+}
+
+.container-input {
+  
+  border: 0px solid yellow;
+}
+
+.container-output {
   margin-top: 20px;
   margin-bottom: 20px;
 }
 
-div#buttonshit {
-  width: 100%;
-  
+.container-buttons {
+  margin: 20px auto;
+  border: 0px solid purple;
 }
 
-.jsonView{
-    margin-left: 20px;
-    font-family: Consolas, "Lucida Console", Menlo, "dejavu sans mono", monospace;
-    font-size: 20pt;
-    line-height: 20pt;
-    padding: 4px;
-    cursor: default;
-    color: rgb(66, 236, 166);
-    white-space: nowrap;
-    -webkit-user-select: none;
-    text-align: left;
-    }
-
-.jsonView>div{
-    display: inline-block;
+button {
+  margin: 10px auto;
+  font-size: 18pt;
+  padding: 20px;
+  width: 30%;
 }
 
-.jsonView.hidden{
-    display: none;
+.decode {
+  background: #000;
+  color: #fff;
+  border: 2px solid #0f0;
 }
 
-.jsonView>.children, .jsonView.insert{
-    display: block;
+div:has(>button) {
+  padding-top: 20px;
 }
 
-.jsonView>.name{
-    color: rgb(236, 119, 45);
+.testbtn {
+  background: #000;
+  color: #fff;
+  border: 2px solid #0ff;
 }
 
-.jsonView>.separator:before{
-    content: ":";
+.encode {
+  background: #000;
+  color: #fff;
+  border: 2px solid #f00;
 }
 
-.jsonView>.separator{
-    padding-right: 5px;
+.decode:hover {
+  background: #111;
+  color: #fff;
+  border: 2px solid #007f00;
+  box-shadow: inset 0 0 50px 10px #007f00;
+  text-shadow: 0 0 6px #fff;
 }
 
-.jsonView>.spacing{
-    display:inline-block;
-    width:15px;
-}
-.jsonView>.spacing::before{
-    content: '1';
-    visibility:hidden;
+.testbtn:hover {
+  background: #fff;
+  color: #000;
+  border: 2px solid #ff0;
 }
 
-.jsonView>.value.null, .jsonView>.value.undefined{
-    color: rgb(128, 128, 128);
+.encode:hover {
+  background: #111;
+  color: #fff;
+  border: 2px solid #7f0000;
+  box-shadow: inset 0 0 50px 10px #7f0000;
+  text-shadow: 0 0 6px #fff;
 }
 
-.jsonView>.value.boolean, .jsonView>.value.number{
-    color: rgb(228, 207, 0);
+.input {
+  width: 90%;
+  height: 75vh;
+  min-height: 25%;
+  max-height: 90%;
+  background: #111;
+  color: #bbb;
+  resize: none;
+  border-radius: 5px;
 }
 
-.jsonView>.value.string:not(.edit):before, .jsonView>.value.string:not(.edit):after{
-    content: "\"";
+.output {
+  width: 80%;
+  height: 150px;
 }
 
-.jsonView>.value.string {
-    color: rgb(246, 226, 222);
+.jsonView {
+  margin: 0 auto;
+  width: 50%;
+  font-family: Consolas, "Lucida Console", Menlo, "dejavu sans mono", monospace;
+  font-size: 20pt;
+  line-height: 20pt;
+  padding: 4px;
+  cursor: default;
+  color: rgb(66, 236, 166);
+  white-space: nowrap;
+  -webkit-user-select: none;
+  text-align: left;
 }
 
-.jsonView>.name:hover, .jsonView>.value:hover{
-    background-color: rgba(255, 21, 17, 0.51);
+.jsonView > div {
+  display: inline-block;
 }
 
-.jsonView>.expand, .jsonView>.collapse{
-    min-width: 20px;
-    margin-left: -20px;
-    cursor: pointer;
+.jsonView.hidden {
+  display: none;
 }
 
-.jsonView>.expand:before{
-    content: '\25B6';
+.jsonView > .children,
+.jsonView.insert {
+  display: block;
 }
 
-.jsonView>.collapse:before{
-    content: '\25BC';
+.jsonView > .name {
+  color: rgb(236, 119, 45);
 }
 
-.jsonView>.edit{
-    padding: 0px 5px 0px 5px;
-    white-space: nowrap;
-    overflow: hidden;
-    background-color: transparent;
+.jsonView > .separator:before {
+  content: ":";
 }
 
-.jsonView>.edit br{
-    display: none;
+.jsonView > .separator {
+  padding-right: 5px;
 }
 
-.jsonView>.edit *{
-    display: inline;
-    white-space: nowrap;
+.jsonView > .spacing {
+  display: inline-block;
+  width: 15px;
+}
+.jsonView > .spacing::before {
+  content: "1";
+  visibility: hidden;
 }
 
-.jsonView>.value.edit{
-    color: rgb(255, 255, 255);
+.jsonView > .value.null,
+.jsonView > .value.undefined {
+  color: rgb(128, 128, 128);
 }
 
-.jsonView>.delete:before{
-    content: '+';
-    transform: rotate(45deg);
-    -webkit-transform: rotate(45deg);
-    -o-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    display: inline-block;
+.jsonView > .value.boolean,
+.jsonView > .value.number {
+  color: rgb(228, 207, 0);
 }
 
-.jsonView>.delete{
-    opacity: 0;
-    display: inline;
-    padding: 3px;
-    cursor: pointer;
-    color: rgb(250, 150, 150);
+.jsonView > .value.string:not(.edit):before,
+.jsonView > .value.string:not(.edit):after {
+  content: '"';
 }
 
-.jsonView>.item:hover~.delete{
-    opacity: 1;
-    color: rgb(250, 150, 150);
-}
-.jsonView>.delete:hover{
-    opacity: 1;
-    color: rgb(255, 0, 0);
-    background: rgba(220, 220, 220, 0.25);
+.jsonView > .value.string {
+  color: rgb(246, 226, 222);
 }
 
-.jsonView.readonly>.insert,.jsonView.readonly>.delete{
-    display: none !important;
-}
-.jsonView>.insert:before{
-    content: '+';
+.jsonView > .name:hover,
+.jsonView > .value:hover {
+  background-color: rgba(255, 21, 17, 0.51);
 }
 
-.jsonView>.insert{
-    display: none;
-    color: rgb(0, 250, 0);
-    cursor: pointer;
+.jsonView > .jv-expand,
+.jsonView > .jv-collapse {
+  min-width: 20px;
+  margin-left: -20px;
+  cursor: pointer;
 }
 
-.jsonView.expanded>.insert, .jsonView.expanded>.insert{
-    display: inline-block;
-    margin-left: 20px;
-    padding: 3px;
+.jsonView > .jv-expand:hover::before,
+.jsonView > .jv-collapse:hover::before {
+  color: rgb(127,63,255);
 }
 
-.jsonView>.insert:hover{
-    color: rgb(0, 255, 0);
-    background: rgba(220, 220, 220, 0.25);
+.jsonView > .jv-expand:before {
+  content: '\25B6';
+}
+
+.jsonView > .jv-collapse:before {
+  content: '\25BC';
+}
+
+.jsonView > .edit {
+  padding: 0px 5px 0px 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  background-color: transparent;
+}
+
+.jsonView > .edit br {
+  display: none;
+}
+
+.jsonView > .edit * {
+  display: inline;
+  white-space: nowrap;
+}
+
+.jsonView > .value.edit {
+  color: rgb(255, 255, 255);
+}
+
+.jsonView > .delete:before {
+  content: "+";
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  display: inline-block;
+}
+
+.jsonView > .delete {
+  opacity: 0;
+  display: inline;
+  padding: 3px;
+  cursor: pointer;
+  color: rgb(250, 150, 150);
+}
+
+.jsonView > .item:hover ~ .delete {
+  opacity: 1;
+  color: rgb(250, 150, 150);
+}
+.jsonView > .delete:hover {
+  opacity: 1;
+  color: rgb(255, 0, 0);
+  background: rgba(220, 220, 220, 0.25);
+}
+
+.jsonView.readonly > .insert,
+.jsonView.readonly > .delete {
+  display: none !important;
+}
+.jsonView > .insert:before {
+  content: "+";
+}
+
+.jsonView > .insert {
+  display: none;
+  color: rgb(0, 250, 0);
+  cursor: pointer;
+}
+
+.jsonView.jv-expanded > .insert,
+.jsonView.jv-expanded > .insert {
+  display: inline-block;
+  margin-left: 20px;
+  padding: 3px;
+}
+
+.jsonView > .insert:hover {
+  color: rgb(0, 255, 0);
+  background: rgba(220, 220, 220, 0.25);
 }
