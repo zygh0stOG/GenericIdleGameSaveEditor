@@ -6,31 +6,40 @@
   <title>Generic Idle Game Save Editor by zygh0st</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css'>
-  <link rel="stylesheet" href="./devtools.css">
-  <link rel="stylesheet" href="./style.css">
-  
+  <link rel="stylesheet" href="./css/devtools.css">
+  <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
   <div class="container-fluid">
     <!-- Main Row -->
-    <div class="row">
+    <div class="row gy-5">
       <!-- Left Column -->
-      <div class="col">
+      <div class="col-7">
+        <div class="row justify-content-start">
         <!-- JSON Tree View -->
-        <div class="container-treeview" id="tree-view"></div>
+        <div class="container-treeview" id="tree-view"></div></div>
       </div>
       <!-- Right Column -->
-      <div class="col">
-        <!-- Input Row -->          
+      <div class="col-5">
+        <!-- Game Save Input Row -->          
         <div class="row">
           <textarea class="input col" id="sg-input" placeholder="Input save game here..."></textarea>
         </div>
+        <!-- Game Type Selection Row -->
+        <div class="row">
+          <select id="sg-type">
+            <option value="base64">Base64</option>
+            <option value="lzstring">LZ String</option>
+            <option value="magrsrch">Magic Research</option>
+          </select>
+        </div>
         <!-- Buttons Row -->
         <div class="row">  
-          <button class="button decode col-4" id="btn-decode">Decode</button>
+          <button class="button decode col-3" id="btn-decode">Decode</button>
           <!--<button class="button testbtn" id="btn-test">Test</button>-->
-          <button class="button encode col-4" id="btn-encode">Encode</button>
+          <button class="button reset col-3" id="btn-reset">Reset</button>
+          <button class="button encode col-3" id="btn-encode">Encode</button>
         </div>
       </div>
     </div>
@@ -38,7 +47,8 @@
   <!-- Scripts -->
   <script src='https://cdnjs.cloudflare.com/ajax/libs/lz-string/1.4.4/lz-string.min.js'></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/js-cookie/3.0.5/js.cookie.min.js'></script>
-  <script type="module" src="./script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/pako/dist/pako.min.js"></script>
+  <script type="module" src="./js/script.js"></script>
 
 </body>
 

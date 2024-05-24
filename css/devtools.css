@@ -8,6 +8,7 @@
     color: rgb(66, 66, 66);
     white-space: nowrap;
     -webkit-user-select: none;
+    user-select: none;
 }
 
 .jsonView>div{
